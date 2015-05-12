@@ -35,6 +35,13 @@ console.log(emojis[0]);
 // => 🀄
 ```
 
+## Related
+
+* [emojis-unicode](https://github.com/Kikobeats/emojis-unicode) – Complete list of standard Unicode codes that represent emojis.
+* [emojis-keywords](https://github.com/Kikobeats/emojis-keywords) – Complete list of am emoji shortcuts.
+* [is-emoji-keyword](https://github.com/Kikobeats/is-emoji-keyword) – Check if a word is a emoji shortcut.
+* [trim-emoji](https://github.com/Kikobeats/trim-emoji) – Deletes ':' from the begin and the end of an emoji shortcut.
+
 ## License
 
 MIT © [Kiko Beats](http://www.kikobeats.com)
