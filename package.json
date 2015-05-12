@@ -1,0 +1,32 @@
+{
+  "name": "emojis-list",
+  "description": "Complete list of standard emojis.",
+  "homepage": "https://github.com/Kikobeats/emojis-list",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "author": {
+    "name": "Kiko Beats",
+    "email": "josefrancisco.verdu@gmail.com",
+    "url": "https://github.com/Kikobeats"
+  },
+  "repository": "Kikobeats/emojis-list",
+  "bugs": {
+    "url": "https://github.com/Kikobeats/emojis-list/issues"
+  },
+  "keywords": [
+    "emoji",
+    "list",
+    "complete",
+    "archive",
+    "standard"
+  ],
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 0.10.0",
+    "npm": ">= 1.4.0"
+  },
+  "scripts": {
+    "test": "sh test/test.sh"
+  },
+  "license": "MIT"
+}
