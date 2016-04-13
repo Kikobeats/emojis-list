@@ -37,7 +37,7 @@
     "node": ">= 0.10"
   },
   "scripts": {
-    "test": "sh test/test.sh"
+    "test": "echo 'YOLO'"
   },
   "license": "MIT"
 }
