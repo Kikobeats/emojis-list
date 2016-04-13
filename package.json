@@ -21,13 +21,12 @@
     "standard"
   ],
   "devDependencies": {
-    "acho": "*",
-    "download": "*",
-    "tmp": "*"
+    "acho": "~2.5.3",
+    "download": "~4.4.3",
+    "tmp": "0.0.28"
   },
   "engines": {
-    "node": ">= 0.10.0",
-    "npm": ">= 1.4.0"
+    "node": ">= 0.10"
   },
   "scripts": {
     "test": "sh test/test.sh"
