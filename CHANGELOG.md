@@ -1,3 +1,12 @@
+<a name="1.0.2"></a>
+## 1.0.2 (2016-05-05)
+
+* fixed #2 ([9a6abe7](https://github.com/kikobeats/emojis-list/commit/9a6abe7)), closes [#2](https://github.com/kikobeats/emojis-list/issues/2)
+* Fomar using standard ([5202f9f](https://github.com/kikobeats/emojis-list/commit/5202f9f))
+* Update badge ([53fad9b](https://github.com/kikobeats/emojis-list/commit/53fad9b))
+
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2016-04-13)
 
