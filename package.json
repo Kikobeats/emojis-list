@@ -24,7 +24,7 @@
     "standard"
   ],
   "devDependencies": {
-    "acho": "~2.5.3",
+    "acho": "~3.0.0",
     "browserify": "~13.0.0",
     "coffeeify": "~2.0.1",
     "download": "~4.4.3",
