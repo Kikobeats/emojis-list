@@ -25,7 +25,7 @@
   ],
   "devDependencies": {
     "acho": "~2.5.3",
-    "browserify": "~13.0.0",
+    "browserify": "~13.0.1",
     "coffeeify": "~2.0.1",
     "download": "~4.4.3",
     "gulp": "~3.9.1",
