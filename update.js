@@ -45,11 +45,9 @@ tmp.dir(function _tempDirCreated (err, tmpFolder, cleanup) {
           return fromCodePoint(file[0])
         })
 
-        var data = JSON.stringify(result, null, 2)
-        fs.writeFile('emojis.json', data, function (err) {
-          if (err) throw err
-          logger.success('File saved!')
-        })
+        var emojis = JSON.stringify(result, null, 2)
+        fs.writeFileSync('index.js', 'module.exports = ' + emojis, 'utf8')
+        logger.success('File saved!')
 
       // cleanup(); disable to prevent remove other tmp files of the system.
       })
