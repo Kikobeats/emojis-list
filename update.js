@@ -1,57 +1,49 @@
-'use strict'
+'use strict';
 
-var fs = require('fs')
-var tmp = require('tmp')
-var Acho = require('acho')
-var path = require('path')
-var Download = require('download')
-var logger = new Acho({
-  color: true
-})
+var fs = require('fs'),
+    request = require('request'),
+    version = parseInt(require('./package.json').version);
 
-var fromCodePoint = function (codepoint) {
-  var code = typeof codepoint === 'string' ? parseInt(codepoint, 16) : codepoint
-  if (code < 0x10000) return String.fromCharCode(code)
-  code -= 0x10000
-  return String.fromCharCode(0xD800 + (code >> 10), 0xDC00 + (code & 0x3FF))
+function fromCodePoint(codepoint) {
+  var code = typeof codepoint === 'string' ? parseInt(codepoint, 16) : codepoint;
+  if (code < 0x10000) return String.fromCharCode(code);
+  code -= 0x10000;
+  return String.fromCharCode(0xD800 + (code >> 10), 0xDC00 + (code & 0x3FF));
 }
 
-tmp.dir(function _tempDirCreated (err, tmpFolder, cleanup) {
-  if (err) return logger.error(err)
+var previewUrl = 'http://twitter.github.io/twemoji/' + version + '/test/preview.html';
 
-  logger.info('Created temporal folder in ' + tmpFolder)
-  logger.info('Downloading file...')
-
-  new Download({
-    mode: '755',
-    extract: true
-  })
-    .get('https://github.com/twitter/twemoji/archive/gh-pages.zip')
-    .dest(tmpFolder)
-    .run(function (err) {
-      if (err) return logger.error(err)
-      logger.info('File downloaded and extracted succesful.')
-
-      var folder = fs.readdirSync(tmpFolder)[0]
-      var emojiDirectory = path.resolve(tmpFolder, folder, 'assets')
-
-      logger.info('Read the directory ' + emojiDirectory)
-
-      fs.readdir(emojiDirectory, function (err, files) {
-        logger.info('Generating emoji keywords')
-        if (err) return logger.error(err)
-        var result = files.map(function (file) {
-          file = file.split('.')
-          return fromCodePoint(file[0])
-        })
-
-        var data = JSON.stringify(result, null, 2)
-        fs.writeFile('emojis.json', data, function (err) {
-          if (err) throw err
-          logger.success('File saved!')
-        })
-
-      // cleanup(); disable to prevent remove other tmp files of the system.
-      })
-    })
-})
+request.get(previewUrl, function(err, res, data) {
+  if (err || res.statusCode !== 200) {
+    console.error("Something goes wrong when downloading the preview page.", e);
+    process.exit(-1);
+  }
+  console.log("emoji list loaded, parsing and saving...");
+  try {
+    var str = data.substr(data.indexOf('<ul class="emoji-list">') + 23);
+    str = str.substr(0, str.indexOf('</ul>')).trim();
+    var regex = /<li>(.+?)<\/li>/g;
+    var emojisList = [];
+    while (true) {
+      var match = regex.exec(str);
+      if (!match) break;
+      emojisList.push(match[1]);
+    }
+    emojisList = emojisList.map(function(encStr) {
+      var regex = /&#x([0-9A-F]+?);/g;
+      var s = '';
+      while (true) {
+        var match = regex.exec(encStr);
+        if (!match) break;
+        s += fromCodePoint(match[1]);
+      }
+      return s;
+    });
+    fs.writeFileSync('index.js', "module.exports = " + JSON.stringify(emojisList, null, 2), 'utf8');
+    console.log('done..');
+    process.exit(0);
+  } catch(e) {
+    console.error("Error parsing emoji list html.", e);
+    process.exit(-1);
+  }
+});
