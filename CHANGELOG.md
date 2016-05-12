@@ -1,3 +1,10 @@
+<a name="2.0.1"></a>
+## 2.0.1 (2016-05-12)
+
+* Fix typo ([3808909](https://github.com/kikobeats/emojis-list/commit/3808909))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2016-05-12)
 
