@@ -44,7 +44,8 @@
   ],
   "scripts": {
     "pretest": "standard update.js",
-    "test": "echo 'YOLO'"
+    "test": "echo 'YOLO'",
+    "update": "node update"
   },
   "license": "MIT"
 }
