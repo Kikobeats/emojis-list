@@ -2,6 +2,8 @@
 
 var fs = require('fs'),
     request = require('request'),
+    Acho = require('acho'),
+    logger = new Acho({ color: true }),
     version = parseInt(require('./package.json').version);
 
 function fromCodePoint(codepoint) {
@@ -13,12 +15,13 @@ function fromCodePoint(codepoint) {
 
 var previewUrl = 'http://twitter.github.io/twemoji/' + version + '/test/preview.html';
 
+logger.info("Start loading emoji list from " + previewUrl);
 request.get(previewUrl, function(err, res, data) {
   if (err || res.statusCode !== 200) {
-    console.error("Something goes wrong when downloading the preview page.", e);
+    logger.error("Something goes wrong when downloading the preview page.", err);
     process.exit(-1);
   }
-  console.log("emoji list loaded, parsing and saving...");
+  logger.info("emoji list loaded, parsing and saving...");
   try {
     var str = data.substr(data.indexOf('<ul class="emoji-list">') + 23);
     str = str.substr(0, str.indexOf('</ul>')).trim();
@@ -40,10 +43,10 @@ request.get(previewUrl, function(err, res, data) {
       return s;
     });
     fs.writeFileSync('index.js', "module.exports = " + JSON.stringify(emojisList, null, 2), 'utf8');
-    console.log('done..');
+    logger.info('done..');
     process.exit(0);
   } catch(e) {
-    console.error("Error parsing emoji list html.", e);
+    logger.error("Error parsing emoji list html.", e);
     process.exit(-1);
   }
 });
