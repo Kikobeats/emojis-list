@@ -7,7 +7,8 @@ var fs = require('fs')
 var log = Acho()
 
 var CONST = {
-  URL: 'https://twitter.github.io/twemoji/2/test/preview.html'
+  URL: 'https://twitter.github.io/twemoji/2/test/preview.html',
+  MAIN_FILE: 'index.js'
 }
 
 function exitOnError (err) {
@@ -29,7 +30,7 @@ got(CONST.URL, function (err, data, res) {
     return emoji
   }).get()
 
-  log.info('total', emojis.length)
-  fs.writeFileSync('index.js', 'module.exports = ' + stringify(emojis), 'utf8')
-  log.info('saved at index.js')
+  log.info('total:', emojis.length)
+  fs.writeFileSync(CONST.MAIN_FILE, 'module.exports = ' + stringify(emojis), 'utf8')
+  log.info('saved at', CONST.MAIN_FILE)
 })
