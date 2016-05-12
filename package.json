@@ -24,16 +24,15 @@
     "standard"
   ],
   "devDependencies": {
-    "acho": "~2.5.3",
+    "acho": "^3.0.0",
     "browserify": "~13.0.1",
     "coffeeify": "~2.0.1",
-    "download": "~4.4.3",
     "gulp": "~3.9.1",
     "gulp-header": "~1.8.1",
     "gulp-uglify": "~1.5.3",
     "gulp-util": "~3.0.7",
+    "request": "^2.72.0",
     "standard": "latest",
-    "tmp": "0.0.28",
     "vinyl-buffer": "~1.0.0",
     "vinyl-source-stream": "~1.1.0"
   },
@@ -42,7 +41,9 @@
   },
   "scripts": {
     "pretest": "standard update.js",
-    "test": "echo 'YOLO'"
+    "test": "echo 'YOLO'",
+    "update": "node update.js",
+    "dist": "gulp"
   },
   "license": "MIT"
 }
