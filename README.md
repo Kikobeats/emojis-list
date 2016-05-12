@@ -28,19 +28,11 @@ and later link in your HTML:
 ```
 
 ## Usage
-### node
+
 ```
 var emojis = require('emojis-list');
 console.log(emojis[0]);
 // => 🀄
-```
-
-### webpack
-If you use it in `webpack`, don't forget to install `json-loader` to load it
-
-```
-//add in webpack.config.js
-{test: /\.json$/,  loader: 'json'}
 ```
 
 ## Related
