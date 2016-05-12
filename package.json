@@ -34,7 +34,7 @@
     "gulp-util": "latest",
     "standard": "latest",
     "vinyl-buffer": "latest",
-    "vinyl-source-stream": "latest0"
+    "vinyl-source-stream": "latest"
   },
   "engines": {
     "node": ">= 0.10"
