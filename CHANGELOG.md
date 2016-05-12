@@ -1,3 +1,15 @@
+<a name="1.0.3"></a>
+## 1.0.3 (2016-05-12)
+
+* Add standard as linter ([5e939d6](https://github.com/kikobeats/emojis-list/commit/5e939d6))
+* Change interface ([16bc0c0](https://github.com/kikobeats/emojis-list/commit/16bc0c0))
+* Generate emoji file ([fbcf8e9](https://github.com/kikobeats/emojis-list/commit/fbcf8e9))
+* Remove unnecessary special doc ([2b12bec](https://github.com/kikobeats/emojis-list/commit/2b12bec))
+* chore(package): update browserify to version 13.0.1 ([e2c98bf](https://github.com/kikobeats/emojis-list/commit/e2c98bf))
+* chore(package): update gulp-header to version 1.8.1 ([28de793](https://github.com/kikobeats/emojis-list/commit/28de793))
+
+
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2016-05-05)
 
