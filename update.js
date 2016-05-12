@@ -1,55 +1,36 @@
 'use strict'
 
-var fs = require('fs')
-var tmp = require('tmp')
+var cheerio = require('cheerio')
 var Acho = require('acho')
-var path = require('path')
-var Download = require('download')
-var logger = new Acho({
-  color: true
-})
+var got = require('got')
+var fs = require('fs')
+var log = Acho()
 
-var fromCodePoint = function (codepoint) {
-  var code = typeof codepoint === 'string' ? parseInt(codepoint, 16) : codepoint
-  if (code < 0x10000) return String.fromCharCode(code)
-  code -= 0x10000
-  return String.fromCharCode(0xD800 + (code >> 10), 0xDC00 + (code & 0x3FF))
+var CONST = {
+  URL: 'https://twitter.github.io/twemoji/2/test/preview.html',
+  MAIN_FILE: 'index.js'
 }
 
-tmp.dir(function _tempDirCreated (err, tmpFolder, cleanup) {
-  if (err) return logger.error(err)
+function exitOnError (err) {
+  log.error(err)
+  process.exit(err.code || 1)
+}
 
-  logger.info('Created temporal folder in ' + tmpFolder)
-  logger.info('Downloading file...')
+function stringify (val) {
+  return JSON.stringify(val, null, 2)
+}
 
-  new Download({
-    mode: '755',
-    extract: true
-  })
-    .get('https://github.com/twitter/twemoji/archive/gh-pages.zip')
-    .dest(tmpFolder)
-    .run(function (err) {
-      if (err) return logger.error(err)
-      logger.info('File downloaded and extracted succesful.')
+got(CONST.URL, function (err, data, res) {
+  if (err) return exitOnError(err)
+  var $ = cheerio.load(data)
 
-      var folder = fs.readdirSync(tmpFolder)[0]
-      var emojiDirectory = path.resolve(tmpFolder, folder, 'assets')
+  var emojis = $('li').map(function (i, el) {
+    var emoji = $(this).text()
+    log.debug('detected', emoji)
+    return emoji
+  }).get()
 
-      logger.info('Read the directory ' + emojiDirectory)
-
-      fs.readdir(emojiDirectory, function (err, files) {
-        logger.info('Generating emoji keywords')
-        if (err) return logger.error(err)
-        var result = files.map(function (file) {
-          file = file.split('.')
-          return fromCodePoint(file[0])
-        })
-
-        var emojis = JSON.stringify(result, null, 2)
-        fs.writeFileSync('index.js', 'module.exports = ' + emojis, 'utf8')
-        logger.success('File saved!')
-
-      // cleanup(); disable to prevent remove other tmp files of the system.
-      })
-    })
+  log.info('total:', emojis.length)
+  fs.writeFileSync(CONST.MAIN_FILE, 'module.exports = ' + stringify(emojis), 'utf8')
+  log.info('saved at', CONST.MAIN_FILE)
 })
