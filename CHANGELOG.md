@@ -1,3 +1,17 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2016-05-12)
+
+* Add update script ([f846dd6](https://github.com/kikobeats/emojis-list/commit/f846dd6))
+* Block dependencies in last version ([1d9e0a5](https://github.com/kikobeats/emojis-list/commit/1d9e0a5))
+* Extract main file name ([9ffe7bb](https://github.com/kikobeats/emojis-list/commit/9ffe7bb))
+* Remove unnecessary files ([4c34729](https://github.com/kikobeats/emojis-list/commit/4c34729))
+* Update docs, special webpack setup is not necessary ([c4aefe9](https://github.com/kikobeats/emojis-list/commit/c4aefe9))
+* Update example ([1e2ae03](https://github.com/kikobeats/emojis-list/commit/1e2ae03))
+* Update how to generate emojis array ([b56bad9](https://github.com/kikobeats/emojis-list/commit/b56bad9))
+* Update main file based in the new interface ([996fccb](https://github.com/kikobeats/emojis-list/commit/996fccb))
+
+
+
 <a name="1.0.3"></a>
 ## 1.0.3 (2016-05-12)
 
