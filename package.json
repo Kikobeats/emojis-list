@@ -24,17 +24,17 @@
     "standard"
   ],
   "devDependencies": {
-    "acho": "~3.0.0",
-    "browserify": "~13.0.1",
-    "cheerio": "~0.20.0",
+    "acho": "latest",
+    "browserify": "latest",
+    "cheerio": "latest",
     "got": ">=5 <6",
-    "gulp": "~3.9.1",
-    "gulp-header": "~1.8.1",
-    "gulp-uglify": "~1.5.3",
-    "gulp-util": "~3.0.7",
+    "gulp": "latest",
+    "gulp-header": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "latest",
     "standard": "latest",
-    "vinyl-buffer": "~1.0.0",
-    "vinyl-source-stream": "~1.1.0"
+    "vinyl-buffer": "latest",
+    "vinyl-source-stream": "latest0"
   },
   "engines": {
     "node": ">= 0.10"
