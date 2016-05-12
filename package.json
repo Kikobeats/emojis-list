@@ -24,22 +24,24 @@
     "standard"
   ],
   "devDependencies": {
-    "acho": "~2.5.3",
+    "acho": "~3.0.0",
     "browserify": "~13.0.1",
-    "coffeeify": "~2.0.1",
-    "download": "~4.4.3",
+    "cheerio": "~0.20.0",
+    "got": ">=5 <6",
     "gulp": "~3.9.1",
     "gulp-header": "~1.8.1",
     "gulp-uglify": "~1.5.3",
     "gulp-util": "~3.0.7",
     "standard": "latest",
-    "tmp": "0.0.28",
     "vinyl-buffer": "~1.0.0",
     "vinyl-source-stream": "~1.1.0"
   },
   "engines": {
     "node": ">= 0.10"
   },
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "pretest": "standard update.js",
     "test": "echo 'YOLO'"
