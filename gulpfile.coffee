@@ -3,7 +3,6 @@
 # -- Dependencies --------------------------------------------------------------
 
 gulp       = require 'gulp'
-coffeeify  = require 'coffeeify'
 gutil      = require 'gulp-util'
 browserify = require 'browserify'
 header     = require 'gulp-header'
@@ -34,10 +33,8 @@ banner = [
 
 gulp.task 'browserify', ->
   browserify
-      extensions: ['.coffee', '.js']
-    .transform coffeeify
+      extensions: ['.js']
     .require(src.main, { expose: module.shortcut})
-    .ignore('coffee-script')
     .bundle()
   .pipe source module.filename
   .pipe buffer()
