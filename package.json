@@ -2,11 +2,11 @@
   "name": "emojis-list",
   "description": "Complete list of standard emojis.",
   "homepage": "https://github.com/Kikobeats/emojis-list",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "main": "./index.js",
   "author": {
-    "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
     "url": "https://github.com/Kikobeats"
   },
   "repository": {
