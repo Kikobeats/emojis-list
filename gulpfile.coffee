@@ -32,8 +32,7 @@ banner = [
 # -- Tasks ---------------------------------------------------------------------
 
 gulp.task 'browserify', ->
-  browserify
-      extensions: ['.js']
+  browserify extensions: ['.js']
     .require(src.main, { expose: module.shortcut})
     .bundle()
   .pipe source module.filename
