@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/Kikobeats/emojis-list/issues"
   },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "archive",
     "complete",
@@ -28,20 +31,11 @@
     "browserify": "latest",
     "cheerio": "latest",
     "got": ">=5 <6",
-    "gulp": "latest",
-    "gulp-header": "latest",
-    "gulp-uglify": "latest",
-    "gulp-util": "latest",
-    "standard": "latest",
-    "vinyl-buffer": "latest",
-    "vinyl-source-stream": "latest"
+    "standard": "latest"
   },
   "engines": {
     "node": ">= 4"
   },
-  "files": [
-    "index.js"
-  ],
   "scripts": {
     "pretest": "standard update.js",
     "test": "echo 'YOLO'",
