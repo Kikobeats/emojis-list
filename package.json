@@ -1,7 +1,7 @@
 {
   "name": "emojis-list",
   "description": "Complete list of standard emojis.",
-  "homepage": "https://github.com/Kikobeats/emojis-list",
+  "homepage": "https://nidecoc.io/Kikobeats/emojis-list",
   "version": "2.1.0",
   "main": "./index.js",
   "author": {
