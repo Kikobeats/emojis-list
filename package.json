@@ -27,7 +27,7 @@
     "acho": "latest",
     "browserify": "latest",
     "cheerio": "latest",
-    "got": ">=5 <6",
+    "got": ">=5 <11",
     "standard": "latest"
   },
   "engines": {
