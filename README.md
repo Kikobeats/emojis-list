@@ -1,7 +1,5 @@
 # emojis-list
 
-[![Dependency status](http://img.shields.io/david/Kikobeats/emojis-list.svg?style=flat-square)](https://david-dm.org/Kikobeats/emojis-list)
-[![Dev Dependencies Status](http://img.shields.io/david/dev/Kikobeats/emojis-list.svg?style=flat-square)](https://david-dm.org/Kikobeats/emojis-list#info=devDependencies)
 [![NPM Status](http://img.shields.io/npm/dm/emojis-list.svg?style=flat-square)](https://www.npmjs.org/package/emojis-list)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/kikobeats)
 
