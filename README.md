@@ -1,7 +1,6 @@
 # emojis-list
 
 [![NPM Status](http://img.shields.io/npm/dm/emojis-list.svg?style=flat-square)](https://www.npmjs.org/package/emojis-list)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/kikobeats)
 
 > Complete list of standard Unicode Hex Character Code that represent emojis.
 
